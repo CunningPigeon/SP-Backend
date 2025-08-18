@@ -1,15 +1,18 @@
 // frame.controller.ts
 import { Controller, Get } from '@nestjs/common';
+import { ApiService } from 'src/api/api.service';
 
 
-@Controller('frames')
+@Controller('frame')
 export class FrameController {
-  // constructor(private readonly apiService: ApiService) {}
+   constructor(private readonly apiService: ApiService) {}
 
   @Get('options')
   async getOptions() {
-    const data = await this.apiService.getData();
+    let query= '$filter=cast(kindId,%27Edm.Guid%27)%20eq%20faeac0e6-0c6d-f011-8dca-7c1e524deb5b&$skip=0&$top=30&$count=true';
+    // const data = await this.apiService.getData(query);
+    return this.apiService.getData('$filter=cast(kindId,%27Edm.Guid%27)%20eq%20faeac0e6-0c6d-f011-8dca-7c1e524deb5b&$skip=0&$top=30&$count=true');
     // Преобразуем под нужный формат для Angular
-    return data.map((item: any) => item.name); // например, получаем массив строк
+    // return data.map((item: any) => item.name); // например, получаем массив строк
   }
 }
