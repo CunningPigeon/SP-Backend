@@ -15,6 +15,6 @@ async function bootstrap() {
   await app.listen(3000);
   console.log('Root: http://localhost:3000');
   console.log('External: http://localhost:3000/external'); // 
-  console.log('Frame: http://localhost:3000/frames/options');
+  console.log('Frame: http://localhost:3000/frame/options');
 }
 bootstrap();

@@ -13,23 +13,24 @@ import { firstValueFrom } from 'rxjs';
 export class ApiService {
   private readonly API_HOST = 'https://api.start.e-portal.by';
   // FIXME: Написать логику получения токена
-  private readonly API_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc0FkbWluIjoiVHJ1ZSIsIlVzZXJOYW1lIjoiTS5EdW5heSIsIlVzZXJJZCI6IjA0OGEyZDM4LWEzZTktNDIzNi05NmY1LTA4ZGQ5OGZmZTJjYiIsImV4cCI6MTc1NTUyMTg5OCwiaXNzIjoic3RhcnQuZS1wb3J0YWwiLCJhdWQiOiJzdGFydC5lLXBvcnRhbCJ9.F5ztzUVo2NUdwAAuiH3aYl8Qx7VNctlYoPreHVLjXsk'; // токен в виде строки
+  private readonly API_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc0FkbWluIjoiVHJ1ZSIsIlVzZXJOYW1lIjoiTS5EdW5heSIsIlVzZXJJZCI6IjA0OGEyZDM4LWEzZTktNDIzNi05NmY1LTA4ZGQ5OGZmZTJjYiIsImV4cCI6MTc1NjEzNTg0OCwiaXNzIjoic3RhcnQuZS1wb3J0YWwiLCJhdWQiOiJzdGFydC5lLXBvcnRhbCJ9.5g5kRKxxlu5395wcZC7CEZTbQrE4UEOgEKJAX4RA2eA';
 
   constructor(private readonly httpService: HttpService) { }
 
   async getData(query): Promise<any> {
     try {
-      const url = `${this.API_HOST}/api/catalog/product/query?${query}`; // /api/catalog/product/query
+      const url = `${this.API_HOST}/api/catalog/product/query?${query}`; 
 
       // Используем POST
       const response = await firstValueFrom(
         this.httpService.post(
           url,
           {
-            // $filter: "cast(kindId,'Edm.Guid') eq faeac0e6-0c6d-f011-8dca-7c1e524deb5b",
-            // $skip: 0,
-            // $top: 30,
-            // $count: true,
+            $filter: "cast(kindId,'Edm.Guid') eq faeac0e6-0c6d-f011-8dca-7c1e524deb5b",
+            $skip: 0,
+            $top: 30,
+            $orderby: "subKindName desc",
+            $count: true,
           },
           {
             headers: {
