@@ -13,7 +13,7 @@ import { firstValueFrom } from 'rxjs';
 export class ApiService {
   private readonly API_HOST = 'https://api.start.e-portal.by';
   // FIXME: Написать логику получения токена
-  private readonly API_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc0FkbWluIjoiVHJ1ZSIsIlVzZXJOYW1lIjoiTS5EdW5heSIsIlVzZXJJZCI6IjA0OGEyZDM4LWEzZTktNDIzNi05NmY1LTA4ZGQ5OGZmZTJjYiIsImV4cCI6MTc1NjIyMTExNiwiaXNzIjoic3RhcnQuZS1wb3J0YWwiLCJhdWQiOiJzdGFydC5lLXBvcnRhbCJ9.n2KN5E8qTYk92-vlnpALKX1y46Pnay4W4ZCo1naNddY';
+  private readonly API_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc0FkbWluIjoiVHJ1ZSIsIlVzZXJOYW1lIjoiTS5EdW5heSIsIlVzZXJJZCI6IjA0OGEyZDM4LWEzZTktNDIzNi05NmY1LTA4ZGQ5OGZmZTJjYiIsImV4cCI6MTc1NjI5NjQ5MywiaXNzIjoic3RhcnQuZS1wb3J0YWwiLCJhdWQiOiJzdGFydC5lLXBvcnRhbCJ9.6_4bixbizDpNUSvRrUMzFnPfxf2NjdssLRZt-NqdK0k';
 
   constructor(private readonly httpService: HttpService) { }
 
