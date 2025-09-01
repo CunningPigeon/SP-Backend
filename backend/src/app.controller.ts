@@ -13,6 +13,14 @@ export class AppController {
     return { message: 'Hello from NestJS!' };
   }
 
+  @Get('token')
+  async token() {
+    const token = await this.apiService.getToken();
+    console.log(token);
+    return { token };
+  }
+
+
   @Get('full')
   async getFullData() {
     return this.apiService.getData('$skip=0&$orderby=subKindTypeName%20desc&$count=true');
