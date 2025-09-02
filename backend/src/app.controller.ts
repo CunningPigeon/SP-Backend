@@ -16,7 +16,7 @@ export class AppController {
   @Get('token')
   async token() {
     const token = await this.apiService.getToken();
-    console.log(token);
+    // console.log(token);
     return { token };
   }
 
